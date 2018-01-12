@@ -1,0 +1,14 @@
+version: "2"
+services:
+  app:
+    build: .
+    command: npm start
+    env_file:
+     - project.env
+  client:
+    build:
+      context: .
+      dockerfile: ClientDockerfile
+    command: node bin/client_test.js
+    env_file:
+     - project.env
