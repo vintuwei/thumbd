@@ -10,9 +10,10 @@ var
 		s3Bucket: 'project-cars-image-bucket'
 	});
 
-var destination = '/example/awesome.jpg';
+var destination = 'awesome.jpg';
 
-client.upload('../test_image.jpg', destination, function(err) {
+client.upload('./test_image.jpg', destination, function(err) {
+
 	if (err) throw err;
 	client.thumbnail(destination, [{suffix: 'small', width: 100, height: 100, background: 'red', strategy: 'matted'}], {
 		// notify: 'https://callback.example.com', // optional web-hook when processing is done.
