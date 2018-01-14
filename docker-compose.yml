@@ -5,6 +5,8 @@ services:
     command: npm start
     env_file:
      - project.env
+    volumes:
+      - ./:/www/
   client:
     build:
       context: .
@@ -12,3 +14,5 @@ services:
     command: node bin/client_test.js
     env_file:
      - project.env
+    volumes:
+      - ./:/www/
