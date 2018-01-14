@@ -10,13 +10,35 @@ var
 		s3Bucket: 'project-cars-image-bucket'
 	});
 
-var destination = 'awesome.jpg';
+var destination = 'test_pic.jpg';
 
 client.upload('./test_image.jpg', destination, function(err) {
 
 	if (err) throw err;
-	client.thumbnail(destination, [{suffix: 'small', width: 100, height: 100, background: 'red', strategy: 'matted'}], {
+	client.thumbnail(destination, [
+		{
+			suffix: 'small', 
+			width: 100, 
+			height: 100,
+			background: 'red', 
+			strategy: 'matted'
+		},
+		{
+			suffix: 'medium', 
+			width: 200, 
+			height: 200,
+			background: 'red', 
+			strategy: 'matted'
+		},
+		{
+			suffix: 'large', 
+			width: 300, 
+			height: 300,
+			background: 'red', 
+			strategy: 'matted'
+		}
+	], {
 		// notify: 'https://callback.example.com', // optional web-hook when processing is done.
-		prefix: 'cars_' // optional prefix for thumbnails created.
+		prefix: 'test_pic' // optional prefix for thumbnails created.
 	});
 });
