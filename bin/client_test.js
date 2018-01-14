@@ -2,12 +2,13 @@
 
 var 
 	Client = require('../lib/client').Client,
+	config = require('../lib/config').Config,
 	client = new Client({
-		awsKey: 'AKIAJ655HLUMOQH6DGHQ',
-		awsSecret: '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',
-		awsRegion: 'eu-west-1',
-		sqsQueue: '469241275693/project-cars-queue',
-		s3Bucket: 'project-cars-image-bucket'
+		awsKey: config.get('awsKey'),
+		awsSecret: config.get('awsSecret'),
+		awsRegion: config.get('awsRegion'),
+		sqsQueue: config.get('sqsQueue'),
+		s3Bucket: config.get('s3Bucket')
 	});
 
 var destination = 'test_pic.jpg';
